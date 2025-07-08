@@ -1,5 +1,5 @@
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
-import scss from "./reitingDetail.module.scss";
+import scss from "./ReitingDetail.module.scss";
 const ReitingDetail = ({ number }) => {
   return (
     <div>

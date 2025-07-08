@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useMoviesStore } from "../../store/useMoviesStore";
 import { useParams } from "react-router-dom";
 

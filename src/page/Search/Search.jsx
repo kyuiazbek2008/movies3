@@ -9,7 +9,6 @@ const Search = () => {
   useEffect(() => {
     getSearch(name);
   }, [name]);
-  console.log(name);
 
   const navigate = useNavigate();
   return (

@@ -4,7 +4,6 @@ import Img from "../../ui/LazyLoadingImage/Img";
 import { useMoviesStore } from "../../store/useMoviesStore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Key } from "@mui/icons-material";
 const HomeBanner = () => {
   const { getSearch } = useMoviesStore();
   const [show, useShow] = useState("");
