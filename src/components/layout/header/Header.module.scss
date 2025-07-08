@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap");
+.header {
+  background: black;
+  padding-block: 10px;
+  .content {
+    .logo {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      h1 {
+        color: rgba(255, 255, 255, 1);
+        cursor: pointer;
+        font-size: clamp(1rem, 0.795rem + 1.02vw, 1.563rem);
+      }
+      a {
+        color: rgba(255, 255, 255, 1);
+        text-decoration: none;
+      }
+      .nav {
+        width: 300px;
+        height: 30px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        color: #fff;
+        a {
+          font-size: 16px;
+          font-weight: 400;
+          color: #fff;
+          padding-bottom: 2px;
+          z-index: 1;
+          transition: all 0.3s ease 0s;
+          &:hover {
+            color: red;
+          }
+        }
+        span {
+          display: flex;
+          align-items: center;
+          position: absolute;
+          left: -1%;
+          bottom: 0;
+          width: 60px;
+          height: 2px;
+          background: red;
+          transition: 0.5s;
+        }
+      }
+      .nav a:nth-child(1).active ~ span {
+        width: 52px;
+        left: 0%;
+      }
+      .nav a:nth-child(2).active ~ span {
+        width: 70px;
+        left: 22%;
+      }
+      .nav a:nth-child(3).active ~ span {
+        width: 90px;
+        left: 48%;
+      }
+      .nav a:nth-child(4).active ~ span {
+        width: 76px;
+        left: 79%;
+      }
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        input {
+          width: 200px;
+          height: 20px;
+          &::placeholder {
+            color: white;
+          }
+        }
+        .star {
+          font-size: 23px;
+        }
+      }
+    }
+  }
+}

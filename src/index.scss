@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: middle, sans-serif;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 40px;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}

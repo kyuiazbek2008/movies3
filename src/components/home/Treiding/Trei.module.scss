@@ -1,0 +1,14 @@
+.caruselSelection {
+  background: linear-gradient(98.37deg, #455c7d 0.99%, #020c1b 100%);
+  .coruselTitle {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 40px;
+    h1 {
+      color: white;
+    }
+    .btn {
+      display: flex;
+    }
+  }
+}

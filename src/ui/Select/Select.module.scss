@@ -1,0 +1,24 @@
+.select {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 2px 2px;
+  border-radius: 30px;
+  justify-content: space-between;
+  button {
+    padding: 7px 30px;
+    color: #000;
+    border-radius: 30px;
+    border: none;
+    background: none;
+    transition: all 0.3s ease 0s;
+    font-size: 16px;
+    font-weight: 500;
+    color: #041226;
+  }
+  .btn {
+    background: linear-gradient(98.37deg, #b509bd 0.99%, #da2f68 100%);
+    color: #fff;
+    transition: 0.5s;
+  }
+}
