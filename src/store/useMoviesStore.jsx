@@ -12,8 +12,10 @@ export const useMoviesStore = create((set) => ({
   treilers: [],
   DetailActor: [],
   actor: [],
+  allMovies: [],
   loading: false,
   search: [],
+  loader: false,
 
   getImg: async () => {
     set({ loading: true });
@@ -22,14 +24,18 @@ export const useMoviesStore = create((set) => ({
     );
     set({ img: data.results, loading: false });
   },
-  getPopular: async (value) => {
+  getPopular: async (value, pages = 1) => {
     set({ loading: true });
-    let { data } = await axios.get(
-      ` https://api.themoviedb.org/3/${
-        value ? "movie" : "tv"
-      }/popular?api_key=${API_KEY}&language=en-US&page=11`
-    );
-    set({ movies: data.results, loading: false });
+    let allResults = [];
+    for (let page = 1; page <= pages; page++) {
+      let { data } = await axios.get(
+        `https://api.themoviedb.org/3/${
+          value ? "movie" : "tv"
+        }/popular?api_key=${API_KEY}&language=en-US&page=${page}`
+      );
+      allResults = allResults.concat(data.results);
+    }
+    set({ movies: allResults, loading: false });
   },
   getTrending: async (value) => {
     set({ loading: true });
@@ -49,6 +55,7 @@ export const useMoviesStore = create((set) => ({
     );
     set({ moviesTopReiting: data.results, loading: false });
   },
+
   getDetail: async (id) => {
     try {
       set({ loading: true });
@@ -100,5 +107,21 @@ export const useMoviesStore = create((set) => ({
       `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${name}`
     );
     set({ search: data.results, loading: false });
+  },
+  getAllMovies: async (value) => {
+    set({ loader: true });
+    try {
+      let allResults = [];
+      for (let page = 1; page <= 50; page++) {
+        let { data } = await axios(
+          `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc`
+        );
+        allResults = allResults.concat(data.results);
+      }
+      set({ allMovies: allResults, loader: false });
+    } catch (error) {
+      console.error("getAllMovies error:", error);
+      set({ loader: false });
+    }
   },
 }));

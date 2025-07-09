@@ -4,6 +4,7 @@ import Movies from "../page/movies/Movies";
 import Home from "../components/home/Home";
 import DetailActor from "../page/Detail/DetailActors/DetailActor";
 import Search from "../page/Search/Search";
+import TvShow from "../page/Detail/tvshow/TvShow";
 const MainRoutes = () => {
   const router = [
     {
@@ -26,6 +27,11 @@ const MainRoutes = () => {
       link: <Search />,
       element: "/Search/:name",
     },
+    {
+      link: <TvShow />,
+      element: "tv",
+    },
+    ,
   ];
   return (
     <Routes>

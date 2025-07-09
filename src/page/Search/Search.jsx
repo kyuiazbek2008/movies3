@@ -3,9 +3,11 @@ import { useMoviesStore } from "../../store/useMoviesStore";
 import ReitingDetail from "../../ui/ReitingDetail/ReitingDetail";
 import scss from "./Search.module.scss";
 import { useEffect } from "react";
+
 const Search = () => {
   const { getSearch, search } = useMoviesStore();
   const { name } = useParams();
+
   useEffect(() => {
     getSearch(name);
   }, [name]);
@@ -18,7 +20,7 @@ const Search = () => {
           Search results of: {name}
         </h1>
         <div style={{ paddingBlock: "20px" }} className={scss.blockContent}>
-          {search.map((item, index) =>
+          {search?.map((item, index) =>
             item.poster_path == null ? (
               ""
             ) : (
