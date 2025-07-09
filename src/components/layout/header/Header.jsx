@@ -4,9 +4,14 @@ import { Badge, Input } from "antd";
 import { SearchOutlined, StarFilled } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
 import { useMoviesStore } from "../../../store/useMoviesStore";
+import { useEffect, useState } from "react";
 const Header = () => {
-  const { getSearch, getAllMovies } = useMoviesStore();
-
+  const [value, setValue] = useState("all");
+  const { getAllMovies } = useMoviesStore();
+  const { getAllTv } = useMoviesStore();
+  useEffect(() => {
+    getAllTv(value);
+  }, [value]);
   return (
     <header className={scss.header}>
       <div className="container">
@@ -49,7 +54,10 @@ const Header = () => {
                 }}
                 placeholder="Search"
                 prefix={<SearchOutlined />}
-                onChange={(e) => getAllMovies(e.target.value)}
+                onChange={(e) => {
+                  setValue(e.target.value);
+                  getAllMovies(e.target.value);
+                }}
               />
               <Badge count={5}>
                 <StarFilled
